@@ -72,7 +72,7 @@ export default function SelectTraveler() {
                 marginVertical: 14,
               }}
             >
-              <OptionCard option={item} selectedTraveler={selectedTraveler} />
+              <OptionCard option={item} selectedOption={selectedTraveler} />
             </TouchableOpacity>
           )}
         />

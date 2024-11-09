@@ -7,7 +7,7 @@ import {
   Alert,
 } from "react-native";
 import React, { useContext, useEffect } from "react";
-import { useNavigation } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import CalendarPicker from "react-native-calendar-picker";
 import moment, { Moment } from "moment";
@@ -46,6 +46,7 @@ export default function SelectDates() {
       } else {
         Alert.alert("Missing Info", "Please select travel dates.");
       }
+      return;
     }
     const totalDays = endDate?.diff(startDate, "days") || 1;
     setTripData({
@@ -54,6 +55,7 @@ export default function SelectDates() {
       endDate: endDate?.format("YYYY-MM-DD"),
       totalDays: totalDays + 1,
     });
+    router.push("/create-trip/select-budget");
   };
   return (
     <View
