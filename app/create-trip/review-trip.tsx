@@ -10,8 +10,6 @@ export default function ReviewTrip() {
   const router = useRouter();
   const { tripData, setTripData } = useContext(CreateTripContext);
 
-  console.log(tripData);
-
   useEffect(() => {
     navigation.setOptions({
       headerShown: true,
@@ -20,6 +18,11 @@ export default function ReviewTrip() {
       headerBackTitle: "",
     });
   }, []);
+
+  const onClickContinue = () => {
+    router.replace("/create-trip/generate-trip");
+  };
+
   return (
     <View
       style={{
@@ -212,7 +215,7 @@ export default function ReviewTrip() {
         </View>
       </View>
       <TouchableOpacity
-        // onPress={onClickContinue}
+        onPress={onClickContinue}
         style={{
           backgroundColor: Colors.black,
           padding: 15,
